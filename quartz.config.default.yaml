@@ -98,6 +98,28 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      useThemeFonts: true
+      fontOrigin: googleFonts
+      title:
+        name: Cormorant Garamond
+        weights: [600]
+        includeItalic: true
+      h1:
+        name: Cormorant Garamond
+        weights: [600]
+        includeItalic: true
+      header:
+        name: Yeseva One
+        weights: [400]
+      body:
+        name: Nunito
+        weights: [400, 600, 800]
+        includeItalic: true
+      h6: '"Emilys Candy", serif'
+      code:
+        name: JetBrains Mono
+        weights: [400, 600]
   - source: "@quartz-themes/core"
     enabled: true
     options:
