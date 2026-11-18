@@ -1,11 +1,8 @@
 ---
-title: reading log
+title: hush hush
 ---
 
-Welcome to my tiny corner of the internet!
+hello!
 
-## Finished Books
-- [[the-toaster-project|The Toaster Project]]
-
-## Currently Reading
-- [[aura|Aura]
+### Browse years
+* **[[2026/index|2026 list]]**
