@@ -2,10 +2,6 @@
 title: 2026 log
 ---
 
-> [!abstract] 2026 Snapshot 
-> **Currently Reading:** [[aura|Aura]] by Carlos Fuentes  
-> **Finished:** 1 book  
-
 ### 2026 Shelf
 
 | Book | Author | Status |
