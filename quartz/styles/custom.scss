@@ -1,8 +1,5 @@
 @use "./variables.scss" as *;
 
-// Load Alice Velvet's missing decorative fonts (Yeseva One + Emilys Candy + Cormorant Garamond + Nunito)
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Emilys+Candy&family=Nunito:wght@400;600;800&family=Yeseva+One&display=swap");
-
 :root {
   --alice-title-font: "Cormorant Garamond", Georgia, serif;
   --alice-heading-font: "Yeseva One", Georgia, serif;
@@ -26,7 +23,6 @@
     vertical-align: middle;
   }
 
-  // If properties are inside a collapsible <details> panel
   details {
     margin: 0.6rem 0 1rem;
     padding: 0.4rem 0.75rem;
@@ -45,7 +41,7 @@ a.tag-link,
   padding: 0.18em 0.65em;
   margin: 0.15em 0.25em 0.15em 0;
   border: 1px solid rgba(246, 150, 179, 0.32);
-  border-bottom: 1px solid rgba(246, 150, 179, 0.32); // stops alice-velvet's global a underline clashing
+  border-bottom: 1px solid rgba(246, 150, 179, 0.32);
   border-radius: 999px;
   font-family: var(--alice-accent-font);
   font-size: 0.85em;
@@ -81,7 +77,6 @@ article {
     font-weight: 400;
   }
 
-  // Decorative accent rules under h1 & h2 from Alice Velvet
   h1::after,
   h2::after {
     content: "";
@@ -92,7 +87,6 @@ article {
     background: linear-gradient(90deg, var(--alice-red-suits, #dd1440), transparent);
   }
 
-  // Keep markdown tables inside notes readable without overly tall rows
   table {
     margin-block: 1.1em;
     font-size: 0.96em;
@@ -104,7 +98,6 @@ article {
     padding: 0.55em 0.8em;
   }
 
-  // Latest Alice Velvet HR pause marker + custom cards/panels
   hr {
     display: block;
     border: 0;
