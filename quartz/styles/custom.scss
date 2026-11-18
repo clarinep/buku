@@ -1,3 +1,133 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// 1. Overall page breathing room (desktop + mobile)
+body #quartz-body {
+  padding-inline: 1.5rem;
+  column-gap: 2.5rem;
+
+  @media all and (max-width: 800px) {
+    padding-inline: 1rem;
+  }
+
+  // Sidebars (Explorer, Graph, TOC, Backlinks)
+  .sidebar {
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    gap: 1.25rem;
+
+    @media all and (max-width: 800px) {
+      padding-top: 1rem;
+      padding-bottom: 0.75rem;
+    }
+  }
+
+  // Main reading column
+  .center {
+    padding-bottom: 3rem;
+  }
+
+  // Header stack (breadcrumbs, title, note-properties, dates)
+  .page-header {
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+
+    @media all and (max-width: 800px) {
+      margin-top: 1rem;
+    }
+  }
+
+  .breadcrumb-container {
+    margin-bottom: 0.75rem;
+  }
+
+  .article-title {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .content-meta {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  // Note properties panel (@quartz-community/note-properties)
+  .note-properties,
+  .frontmatter-properties {
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0 1.25rem;
+    border-radius: 8px;
+  }
+
+  // 2. Inside the note body
+  article {
+    p {
+      margin-block: 0.9rem;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 1.8em;
+      margin-bottom: 0.6em;
+    }
+
+    blockquote {
+      padding: 0.75rem 1.1rem;
+      margin: 1.25rem 0;
+      border-radius: 6px;
+    }
+
+    // Callouts
+    .callout {
+      padding: 0.85rem 1.1rem;
+      margin: 1.25rem 0;
+      border-radius: 8px;
+
+      .callout-title {
+        padding: 0;
+        gap: 0.5rem;
+      }
+
+      .callout-content > :first-child {
+        margin-top: 0.5rem;
+      }
+      .callout-content > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Code blocks & inline code
+    pre {
+      padding: 1rem 1.15rem;
+      margin: 1.25rem 0;
+      border-radius: 8px;
+    }
+
+    :not(pre) > code {
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    // Tables
+    table {
+      margin: 1.25rem 0;
+    }
+    th, td {
+      padding: 0.55rem 0.85rem;
+    }
+
+    // Lists
+    ul, ol {
+      padding-left: 1.5rem;
+      li {
+        margin-block: 0.35rem;
+      }
+    }
+  }
+
+  // 3. Footer spacing
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+}
