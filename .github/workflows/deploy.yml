@@ -28,8 +28,6 @@ jobs:
         run: npm ci
       - name: Install Quartz Plugins
         run: npx quartz plugin install
-      - name: Apply Quartz Theme
-        run: curl -s -S https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh | bash -s -- catppuccin
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
