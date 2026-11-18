@@ -1,133 +1,135 @@
 @use "./variables.scss" as *;
 
-// 1. Overall page breathing room (desktop + mobile)
-body #quartz-body {
-  padding-inline: 1.5rem;
-  column-gap: 2.5rem;
+// Load Alice Velvet's missing decorative fonts (Yeseva One + Emilys Candy + Cormorant Garamond + Nunito)
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Emilys+Candy&family=Nunito:wght@400;600;800&family=Yeseva+One&display=swap");
 
-  @media all and (max-width: 800px) {
-    padding-inline: 1rem;
+:root {
+  --alice-title-font: "Cormorant Garamond", Georgia, serif;
+  --alice-heading-font: "Yeseva One", Georgia, serif;
+  --alice-body-font: "Nunito", "Avenir Next", system-ui, sans-serif;
+  --alice-accent-font: "Emilys Candy", "Cormorant Garamond", Georgia, serif;
+}
+
+// 1. Fix the Properties / "Tags Table" in beforeBody (.page-header) without breaking markdown tables in article
+.page-header {
+  table {
+    margin-block: 0.4rem;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    border-radius: 7px;
   }
 
-  // Sidebars (Explorer, Graph, TOC, Backlinks)
-  .sidebar {
-    padding-top: 2.5rem;
-    padding-bottom: 2rem;
-    gap: 1.25rem;
-
-    @media all and (max-width: 800px) {
-      padding-top: 1rem;
-      padding-bottom: 0.75rem;
-    }
+  th,
+  td {
+    min-height: unset;
+    padding: 0.35rem 0.65rem;
+    vertical-align: middle;
   }
 
-  // Main reading column
-  .center {
-    padding-bottom: 3rem;
-  }
-
-  // Header stack (breadcrumbs, title, note-properties, dates)
-  .page-header {
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-
-    @media all and (max-width: 800px) {
-      margin-top: 1rem;
-    }
-  }
-
-  .breadcrumb-container {
-    margin-bottom: 0.75rem;
-  }
-
-  .article-title {
-    margin-top: 0.25rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .content-meta {
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
-  }
-
-  // Note properties panel (@quartz-community/note-properties)
-  .note-properties,
-  .frontmatter-properties {
-    padding: 0.75rem 1rem;
-    margin: 0.75rem 0 1.25rem;
+  // If properties are inside a collapsible <details> panel
+  details {
+    margin: 0.6rem 0 1rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--alice-line);
     border-radius: 8px;
+    background: var(--background-secondary);
+  }
+}
+
+// 2. Fix Tag Pills (inside tags list, properties table, and inline note tags)
+a.tag,
+a.tag-link,
+.tags a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18em 0.65em;
+  margin: 0.15em 0.25em 0.15em 0;
+  border: 1px solid rgba(246, 150, 179, 0.32);
+  border-bottom: 1px solid rgba(246, 150, 179, 0.32); // stops alice-velvet's global a underline clashing
+  border-radius: 999px;
+  font-family: var(--alice-accent-font);
+  font-size: 0.85em;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+ul.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding-left: 0;
+  margin: 0.6rem 0 1rem;
+  list-style: none;
+}
+
+// 3. Port Alice Velvet's missing .markdown-preview-view rules to Quartz's `article`
+article {
+  font-family: var(--alice-body-font);
+  line-height: 1.72;
+
+  h1,
+  .article-title {
+    font-family: var(--alice-title-font);
+    font-style: italic;
+    font-weight: 600;
   }
 
-  // 2. Inside the note body
-  article {
-    p {
-      margin-block: 0.9rem;
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4 {
-      margin-top: 1.8em;
-      margin-bottom: 0.6em;
-    }
-
-    blockquote {
-      padding: 0.75rem 1.1rem;
-      margin: 1.25rem 0;
-      border-radius: 6px;
-    }
-
-    // Callouts
-    .callout {
-      padding: 0.85rem 1.1rem;
-      margin: 1.25rem 0;
-      border-radius: 8px;
-
-      .callout-title {
-        padding: 0;
-        gap: 0.5rem;
-      }
-
-      .callout-content > :first-child {
-        margin-top: 0.5rem;
-      }
-      .callout-content > :last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    // Code blocks & inline code
-    pre {
-      padding: 1rem 1.15rem;
-      margin: 1.25rem 0;
-      border-radius: 8px;
-    }
-
-    :not(pre) > code {
-      padding: 0.15rem 0.4rem;
-      border-radius: 4px;
-    }
-
-    // Tables
-    table {
-      margin: 1.25rem 0;
-    }
-    th, td {
-      padding: 0.55rem 0.85rem;
-    }
-
-    // Lists
-    ul, ol {
-      padding-left: 1.5rem;
-      li {
-        margin-block: 0.35rem;
-      }
-    }
+  h2,
+  h3,
+  h4 {
+    font-family: var(--alice-heading-font);
+    font-weight: 400;
   }
 
-  // 3. Footer spacing
-  footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
+  // Decorative accent rules under h1 & h2 from Alice Velvet
+  h1::after,
+  h2::after {
+    content: "";
+    display: block;
+    width: 4.5rem;
+    height: 2px;
+    margin-top: 0.35em;
+    background: linear-gradient(90deg, var(--alice-red-suits, #dd1440), transparent);
+  }
+
+  // Keep markdown tables inside notes readable without overly tall rows
+  table {
+    margin-block: 1.1em;
+    font-size: 0.96em;
+  }
+
+  th,
+  td {
+    min-height: unset;
+    padding: 0.55em 0.8em;
+  }
+
+  // Latest Alice Velvet HR pause marker + custom cards/panels
+  hr {
+    display: block;
+    border: 0;
+    height: 2px;
+    margin: 2.2em auto;
+    width: 100%;
+    background:
+      radial-gradient(circle, var(--alice-pink) 0 2px, transparent 3px),
+      linear-gradient(90deg, transparent, var(--alice-line-strong), transparent);
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: 0.8rem 0.8rem, 100% 2px;
+  }
+
+  .alice-card {
+    border: 1px solid var(--alice-line);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    background: var(--background-secondary);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+
+  .alice-panel {
+    border-block: 1px solid var(--alice-line);
+    padding: 1.2rem 0;
+    background: linear-gradient(90deg, transparent, rgba(246, 150, 179, 0.06), transparent);
   }
 }
